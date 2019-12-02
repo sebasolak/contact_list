@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<div  xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact List - Spring Boot Web Api</title>
+    </head>
+    <body>
+    <div align="center">
+        <h1>My contact list</h1>
+        <br/>
+
+        <table border="1" cellpadding="10">
+            <thead>
+            <tr>
+                <th>ID</th>
+<!--                <th>Name</th>-->
+<!--                <th>Email</th>-->
+                <th>Country</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--/*@thymesVar id="listContact" type=""*/-->
+            <tr th:each = "contacts : ${listContact}">
+
+                                <td th:text="${contacts.id}">Id</td>
+<!--                <td th:text="${contacts.name}">Name</td>-->
+<!--                <td th:text="${contacts.email}">Email</td>-->
+                <td th:text="${contacts.country}">Country</td>
+
+
+            </tbody>
+        </table>
+    </div>
+    </body>
+</div>

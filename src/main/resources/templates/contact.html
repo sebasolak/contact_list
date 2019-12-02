@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<div  xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact List</title>
+        <style>
+
+
+
+
+        </style>
+    </head>
+    <body style="background-color: lightgreen">
+    <div align="center">
+        <h1 style="color: white; background-color: black;  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, serif; font-size: 50;">My contact list</h1>
+        <a href="new" style="color: black">Create New Contact</a>
+        <br/>
+        <br/>
+        <table style="background-color: white;" border="1" cellpadding="10">
+            <thead>
+            <tr style= "border-top: 1px solid;">
+                <th style="color:black; background-color: lightblue;">Contact ID</th>
+                <th style="color:black;background-color: whitesmoke;">Name</th>
+                <th style="color:black;background-color: lightblue;">Email</th>
+                <th style="color:black;background-color: white;">Country</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--            /*@thymesVar id="listContact" type=""*/-->
+            <tr th:each = "contacts : ${listContact}">
+
+                <td style="color: black; background: lightblue;" th:text="${contacts.id}">Id</td>
+                <td style="color: black; background: whitesmoke;"th:text="${contacts.name}">Name</td>
+                <td style="color: black; background: lightblue;"th:text="${contacts.email}">Email</td>
+                <td style="color: black; background:white"th:text="${contacts.country}">Country</td>
+                <td>
+                    <a style="color: green;" th:href="@{'/edit/' +${contacts.id}}">Edit</a>
+                    <a style="color: red;" th:href="@{'/delete/' +${contacts.id}}">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </body>
+</div></div>
